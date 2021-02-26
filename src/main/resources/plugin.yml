@@ -1,0 +1,15 @@
+name: BraedenCraft
+version: ${project.version}
+main: com.jakehonea.braedencraft.BraedenCraft
+api-version: 1.16
+authors: [ Jake_Honea ]
+website: www.jakehonea.com
+commands:
+  teleport:
+    aliases: [ tp ]
+  rainbow:
+  nick:
+  notes:
+    aliases: [ notebook ]
+  where:
+  near:
