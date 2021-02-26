@@ -1,4 +1,4 @@
-package com.jakehonea.braedencraft;
+package com.jakehonea.braedencraft.utils;
 
 import net.minecraft.server.v1_16_R3.ChatComponentText;
 import net.minecraft.server.v1_16_R3.ChatMessageType;
