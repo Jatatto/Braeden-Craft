@@ -11,5 +11,8 @@ commands:
   nick:
   notes:
     aliases: [ notebook ]
-  where:
+  locate:
+    aliases: [ where ]
   near:
+    aliases: [ nearby ]
+  map:

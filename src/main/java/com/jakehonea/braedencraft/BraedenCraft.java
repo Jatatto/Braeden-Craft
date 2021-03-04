@@ -6,7 +6,11 @@ import com.jakehonea.braedencraft.feature.Feature;
 import com.jakehonea.braedencraft.feature.features.nickname.NameColor;
 import com.jakehonea.braedencraft.feature.features.notes.Notes;
 import com.jakehonea.braedencraft.feature.features.rainbow.RainbowName;
+import com.jakehonea.braedencraft.highlight.Highlighter;
 import com.jakehonea.braedencraft.storage.StorageHandler;
+import discord4j.core.DiscordClient;
+import discord4j.core.GatewayDiscordClient;
+import discord4j.core.event.domain.message.MessageCreateEvent;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -25,18 +29,35 @@ public final class BraedenCraft extends JavaPlugin {
     private List<Feature> features;
     private StorageHandler storageHandler;
 
+    private Discord discord;
+    private Highlighter highlighter;
+
     @Override
     public void onEnable() {
 
-        instance      = this;
-        this.features = Lists.newArrayList();
+        instance = this;
+
+        saveDefaultConfig();
 
         if (!getDataFolder().exists())
             getDataFolder().mkdir();
 
+        new Thread(() -> this.discord = new Discord(this)).start();
+
+        this.features       = Lists.newArrayList();
         this.storageHandler = new StorageHandler();
 
-        registerFeatures(new Locate(), new Notes(), new Compass(), new Teleport(), new DeathCounter(), new RainbowName(), new NameColor());
+        registerFeatures(
+                //new Map(), Maps become super laggy once placed down
+                new Locate(),
+                new Notes(),
+                new Compass(),
+                new Teleport(),
+                new DeathCounter(),
+                new RainbowName(),
+                new NameColor(),
+                new Near()
+        );
 
     }
 
@@ -44,6 +65,12 @@ public final class BraedenCraft extends JavaPlugin {
     public void onDisable() {
 
         features.forEach(this::unregisterFeature);
+
+    }
+
+    public Highlighter getHighlighter() {
+
+        return highlighter;
 
     }
 

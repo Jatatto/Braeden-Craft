@@ -3,7 +3,7 @@ package com.jakehonea.braedencraft.feature.features;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonPrimitive;
 import com.jakehonea.braedencraft.BraedenCraft;
-import com.jakehonea.braedencraft.Util;
+import com.jakehonea.braedencraft.utils.Util;
 import com.jakehonea.braedencraft.feature.Feature;
 import org.bukkit.Bukkit;
 import org.bukkit.command.*;

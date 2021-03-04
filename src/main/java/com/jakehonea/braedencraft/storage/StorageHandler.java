@@ -20,6 +20,7 @@ public class StorageHandler implements Listener {
 
         this.cached = Lists.newArrayList();
         Arrays.stream(BraedenCraft.getInstance().getDataFolder().listFiles())
+                .filter(file -> file.getName().endsWith(".data"))
                 .forEach(file -> cached.add(new PlayerStorage(file)));
 
         Bukkit.getOnlinePlayers().forEach(this::loadPlayer);

@@ -22,7 +22,7 @@ public class Locate extends Feature implements CommandExecutor, TabCompleter {
 
     public Locate() {
 
-        PluginCommand command = instance.getCommand("where");
+        PluginCommand command = instance.getCommand("locate");
 
         command.setExecutor(this);
         command.setTabCompleter(this);

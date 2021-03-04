@@ -1,7 +1,7 @@
 package com.jakehonea.braedencraft.feature.features;
 
 import com.jakehonea.braedencraft.BraedenCraft;
-import com.jakehonea.braedencraft.Util;
+import com.jakehonea.braedencraft.utils.Util;
 import com.jakehonea.braedencraft.feature.Feature;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -27,6 +27,8 @@ public class Compass extends Feature {
                 Bukkit.getOnlinePlayers().forEach(player -> update(player));
 
             }
+
+
         };
 
         this.runnable.runTaskTimer(BraedenCraft.getInstance(), 0, 10);
